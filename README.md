@@ -29,13 +29,16 @@ python -m uvicorn src.main:app --reload
 
 - 路径：`POST /api/math/add`
 - 请求体：
+  
   ```json
   {
     "a": 1.2,
     "b": 3.4
   }
   ```
+
 - 响应体：
+  
   ```json
   {
     "result": 4.6
@@ -81,16 +84,21 @@ source venv/bin/activate
 python -m uvicorn src.main:app --reload
 ```
 
-### 步骤 3：运行 Provider 契约验证
+### 步骤 3：运行 Provider 契约验证（含 provider state handler）
 
 ```bash
-pact-provider-verifier math-api-consumer-math-api-provider.json --provider-base-url=http://localhost:8000
+pact-provider-verifier math-api-consumer-math-api-provider.json \
+  --provider-base-url=http://localhost:8000 \
+  --provider-states-setup-url=http://localhost:8000/_pact/provider_states
 ```
 
 - `math-api-consumer-math-api-provider.json` 为自动生成的契约文件。
 - `--provider-base-url` 指向本地服务地址。
+- `--provider-states-setup-url` 指向你实现的 provider state handler 路径，确保契约中的 providerState 能被正确处理。
 
 > **注意：**
+>
 > 1. 需确保服务已启动且可访问。
 > 2. 验证通过会显示 success，失败会有详细错误信息。
 > 3. 该命令可集成到 CI/CD 流程，保障接口一致性。
+> 4. 如未指定 `--provider-states-setup-url`，providerState 相关准备动作会被跳过，可能导致部分场景验证不完整。
