@@ -102,3 +102,39 @@ pact-provider-verifier math-api-consumer-math-api-provider.json \
 > 2. 验证通过会显示 success，失败会有详细错误信息。
 > 3. 该命令可集成到 CI/CD 流程，保障接口一致性。
 > 4. 如未指定 `--provider-states-setup-url`，providerState 相关准备动作会被跳过，可能导致部分场景验证不完整。
+
+## 7. 端到端性能测试（k6）
+
+本项目支持使用 [k6](https://k6.io/) 进行接口性能测试。
+
+### 步骤 1：安装 k6
+
+MacOS:
+
+```bash
+brew install k6
+```
+
+或参考 [k6 官方文档](https://k6.io/docs/getting-started/installation/) 安装。
+
+### 步骤 2：启动服务
+
+```bash
+source venv/bin/activate
+python -m uvicorn src.main:app --reload
+```
+
+### 步骤 3：运行性能测试
+
+```bash
+k6 run tests/e2e/test_math_api_performance.js
+```
+
+- 测试脚本位于 `tests/e2e/test_math_api_performance.js`。
+- 默认并发 10 用户，持续 10 秒，可根据实际需求调整。
+- 结果中可查看接口的吞吐量、响应时间、错误率等性能指标。
+
+> **注意：**
+>
+> 1. 需确保服务已启动且可访问。
+> 2. 可根据业务场景自定义更多端到端性能测试脚本。
