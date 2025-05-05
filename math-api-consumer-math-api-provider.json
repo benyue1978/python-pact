@@ -1,0 +1,39 @@
+{
+  "consumer": {
+    "name": "math-api-consumer"
+  },
+  "provider": {
+    "name": "math-api-provider"
+  },
+  "interactions": [
+    {
+      "description": "一个加法请求",
+      "providerState": "加法服务可用",
+      "request": {
+        "method": "POST",
+        "path": "/api/math/add",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "a": 2.5,
+          "b": 3.5
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "result": 6.0
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

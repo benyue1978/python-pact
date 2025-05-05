@@ -1,0 +1,6 @@
+# Logfile created on 2025-05-05 13:08:54 +0800 by logger.rb/v1.6.0
+I, [2025-05-05T13:08:54.929548 #30160]  INFO -- : Running example 'Verifying a pact between math-api-consumer and math-api-provider Given 加法服务可用 一个加法请求 with POST /api/math/add returns a response which has status code 200'
+I, [2025-05-05T13:08:54.929761 #30160]  INFO -- : Sending POST request to path: "/api/math/add" with headers: {"CONTENT_TYPE"=>"application/json", "HTTP_X_PACT_ORIGINAL_HEADER_NAMES"=>"Content-Type", "X_PACT_PROVIDER_STATES"=>[{"name"=>"加法服务可用"}]}, see debug logs for body
+D, [2025-05-05T13:08:54.929800 #30160] DEBUG -- : body :{"a":2.5,"b":3.5}
+I, [2025-05-05T13:08:54.947855 #30160]  INFO -- : Received response with status: 200, headers: {"date"=>"Mon, 05 May 2025 05:08:54 GMT", "server"=>"uvicorn", "content-length"=>"14", "content-type"=>"application/json"}, see debug logs for body
+D, [2025-05-05T13:08:54.947899 #30160] DEBUG -- : body: {"result":6.0}

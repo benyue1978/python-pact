@@ -1,0 +1,59 @@
+I, [2025-05-05T12:55:31.511182 #25484]  INFO -- : Cleared interactions
+I, [2025-05-05T12:55:31.513495 #25484]  INFO -- : Registered expected interaction POST /api/math/add
+D, [2025-05-05T12:55:31.513559 #25484] DEBUG -- : {
+  "description": "一个加法请求",
+  "providerState": "加法服务可用",
+  "request": {
+    "method": "POST",
+    "path": "/api/math/add",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "a": 2.5,
+      "b": 3.5
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "result": 6.0
+    }
+  },
+  "metadata": null
+}
+I, [2025-05-05T12:55:31.514920 #25484]  INFO -- : Received request POST /api/math/add
+D, [2025-05-05T12:55:31.514962 #25484] DEBUG -- : {
+  "path": "/api/math/add",
+  "query": "",
+  "method": "post",
+  "body": {
+    "a": 2.5,
+    "b": 3.5
+  },
+  "headers": {
+    "Content-Length": "20",
+    "Content-Type": "application/json",
+    "Host": "localhost:1234",
+    "User-Agent": "python-requests/2.32.3",
+    "Accept-Encoding": "gzip, deflate",
+    "Accept": "*/*",
+    "Connection": "keep-alive",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2025-05-05T12:55:31.515059 #25484]  INFO -- : Found matching response for POST /api/math/add
+D, [2025-05-05T12:55:31.515081 #25484] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "result": 6.0
+  }
+}
+I, [2025-05-05T12:55:31.516329 #25484]  INFO -- : Verifying - interactions matched
+I, [2025-05-05T12:55:31.517816 #25484]  INFO -- : Writing pact for math-api-provider to /Users/song.yue/git/python-pact/math-api-consumer-math-api-provider.json
